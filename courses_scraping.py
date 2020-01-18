@@ -13,3 +13,5 @@ course_parser = soup(course_html, "html.parser")
 uClient.close()
 
 print(course_parser)
+
+# test commit
