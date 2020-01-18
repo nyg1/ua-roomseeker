@@ -4,7 +4,7 @@ from django.urls import reverse
 # red has the primary key of 1
 class Building(models.Model):
     BuildingName = models.CharField(max_length=250)
-
+    
     def get_absolute_url(self):
         return reverse('seeker:detail', kwargs={'pk': self.pk})
 
@@ -16,7 +16,7 @@ class Building(models.Model):
 class Classroom(models.Model):
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
     ClassroomName = models.CharField(max_length=250)
-    
+
 
     def get_absolute_url(self):
         return reverse('seeker:index')
