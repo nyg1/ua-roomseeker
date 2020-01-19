@@ -22,4 +22,6 @@ urlpatterns = [
     #/seeker/classroom/add
     path('classroom/add/', views.ClassroomCreate.as_view(), name='classroom-add'),
 
+    #/seeker/homepage
+    path('homepage/', views.homepage, name = 'homepage'),
 ]
