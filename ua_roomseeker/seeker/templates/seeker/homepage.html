@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../static/seeker/homepage.css"/>
+    <script src="../../static/seeker/homepage.js"></script>
+</head>
+
+<body>
+    <!-- Title Bar -->
+    <div class="container-fluid title">
+        <div class="title">
+            <h1>
+                UA Room Seeker
+            </h1>
+        </div>
+    </div>
+
+    <!-- Link to repo -->
+    <div class="repolink">
+            <a href="https://github.com/nyg1/UAroomseeker">
+                <button type="button" class="btn contactbutton">Link to our repository</button>
+            </a>
+    </div>
+
+    <!-- About this project -->
+    <div class="container-fluid padding">
+        <div class="container">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Quam viverra orci sagittis eu volutpat 
+                odio facilisis. Sed egestas egestas fringilla phasellus. Blandit volutpat maecenas 
+                volutpat blandit. Tempor orci eu lobortis elementum nibh. Quam id leo in vitae turpis 
+                massa sed elementum. Tortor aliquam nulla facilisi cras fermentum. Massa vitae tortor 
+                condimentum lacinia. Tristique risus nec feugiat in. Quam quisque id diam vel quam elementum 
+                pulvinar etiam non. Adipiscing elit pellentesque habitant morbi tristique senectus. Ac tortor 
+                dignissim convallis aenean et tortor at risus viverra.
+            </p>
+        </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input">
+        <div class="container-fluid padding">
+            <div class="col-sm-12">
+                <h2>Search for Rooms</h2>
+            </div>
+            <div class="search">
+                <div class="row">
+                    <!-- Input time info -->
+                    <div class="col-sm-6">
+                        <div class="time">
+                            <h3>Select a time:</h3>
+                            <input type="time" id="timeinput" name="timeinput" required>
+                        </div>
+                    </div>
+        
+                    <!-- Input building info -->
+                    <div class="col-sm-6">
+                        <div class="building">
+                            <h3>Select buildings:</h3>
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="ETLC">ETLC</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="CAB">CAB</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="C">CHEM</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="MECE">MECE</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="NREF">NREF</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="ECHA">ECHA</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="SAB">SAB</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="HC">Humanities</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="T B">Tory Building</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="FAB">Fine Arts</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+        
+                    <!-- Search Button -->
+                    <div class="container-fluid padding">
+                        <div class="searchbutton">
+                            <button type="button" class="btn btn-primary btn-lg" onclick="showResults()">Find me some classrooms!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div id='results'>
+        <div class="container-fluid padding">
+            <h3>
+                Results:
+            </h3>
+        </div>
+    </div>
+    <script>
+        document.getElementById('results').style.display = 'none';
+    </script>
+
+
+    <!-- Javascript stuff -->
+
+    <!-- Personal Info -->
+    <div class="container-fluid padding">
+        <div class="author">
+            <h5>Made with love by Noah Gergel, Weilin Qiu, Sichun Xu, and Nina Yang</h5>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container-fluid padding">
+            <div class="col-12">
+                <div class="copyright">
+                    <h5>&copy; uaroomseeker.tech</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
