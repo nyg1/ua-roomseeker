@@ -10,9 +10,9 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Building.objects.all()
 
-class DetailView(generic.DetailView):
+class BuildingDetailView(generic.DetailView):
     model = Building
-    template_name = 'seeker/detail.html'
+    template_name = 'seeker/building-detail.html'
 
 class BuildingCreate(CreateView):
     model = Building
