@@ -4,7 +4,8 @@ Room-Seeker is a web app that provides assistance in finding unoccupied lecture 
 
 ## Usage
 Access our website at:
+
 Simply input your desired time, and Room Seeker will output all the available classrooms across campus at that time. Buildings are also selectable if you are looking for a particular location with an unoccupied space.
 
 ## License
-See LICENSE file for detail
+See LICENSE file for detail.
