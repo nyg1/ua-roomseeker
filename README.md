@@ -8,3 +8,5 @@ tasks
 		- Grab course listing
 		- Room information
 		- Organize room info
+
+https://www.su.ualberta.ca/events/orientation/roomnumbers/

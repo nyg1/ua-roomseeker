@@ -25,18 +25,11 @@
         </div>
     </div>
 
-    <!-- Personal Info -->
-    <div class="container-fluid padding">
-        <div class="row">
-            <div class="col-sm-8">
-                <h4>Made with love by Noah Gergel, Weilin Qiu, Sichun Xu, and Nina Yang</h4>
-            </div>
-            <div class="col-sm-4">
-                <h4>
-                    <a href="https://github.com/nyg1/UAroomseeker">Link to our repository</a>
-                </h4>
-            </div>
-        </div>
+    <!-- Link to repo -->
+    <div class="repolink">
+            <a href="https://github.com/nyg1/UAroomseeker">
+                <button type="button" class="btn contactbutton">Link to our repository</button>
+            </a>
     </div>
 
     <!-- About this project -->
@@ -54,7 +47,6 @@
             </p>
         </div>
     </div>
-    <hr>
 
     <!-- Input -->
     <div class="input">
@@ -97,28 +89,36 @@
                     <!-- Search Button -->
                     <div class="container-fluid padding">
                         <div class="searchbutton">
-                            <button type="button" class="btn btn-primary btn-lg">Find me some classroom!</button>
+                            <button type="button" class="btn btn-primary btn-lg" onclick="showResults()">Find me some classrooms!</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
 
     <!-- Results -->
-    <div class="container-fluid padding">
-        <h3>
-            Results:
-        </h3>
+    <div id='results'>
+        <div class="container-fluid padding">
+            <h3>
+                Results:
+            </h3>
+        </div>
     </div>
-    <hr>
-
-    <!-- Javascript stuff -->
     <script>
-        alert('Script tags work');
+        document.getElementById('results').style.display = 'none';
     </script>
 
+
+    <!-- Javascript stuff -->
+
+    <!-- Personal Info -->
+    <div class="container-fluid padding">
+        <div class="author">
+            <h5>Made with love by Noah Gergel, Weilin Qiu, Sichun Xu, and Nina Yang</h5>
+        </div>
+    </div>
+    
     <footer>
         <div class="container-fluid padding">
             <div class="col-12">

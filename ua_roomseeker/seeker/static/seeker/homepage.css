@@ -61,6 +61,26 @@ html, body {
     border-radius: 0;
   }
 
-  .copyright {
-      text-align: center;
-  }
+.copyright {
+    text-align: center;
+}
+
+.repolink{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4.5em;
+}
+
+.results {
+    display: none;
+}
+
+.author {
+    text-align: center;
+    padding-top: 5em;
+}
+
+footer{
+    padding-top: 0.5em;
+}
