@@ -6,7 +6,7 @@ from requests import get
 # Global constants.
 COURSE_URL = 'https://calendar.ualberta.ca/content.php?catoid=29&catoid=29&navoid=7430&filter%5Bitem_type%5D=3&filter%5Bonly_active%5D=1&filter%5B3%5D=1&filter%5Bcpage%5D={}#acalog_template_course_filter'
 CLASS_URL = 'https://catalogue.ualberta.ca/Course/Details?subjectCode={}&catalog={}'
-NUM_PAGES = 3 # Hard coded number of pages.
+NUM_PAGES = 73 # Hard coded number of pages.
 
 # Debug flag.
 VERBOSE = False
