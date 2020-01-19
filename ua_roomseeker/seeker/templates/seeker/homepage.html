@@ -6,26 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Homepage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../../static/seeker/homepage.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../static/seeker/homepage.css"/>
+    <script src="../../static/seeker/homepage.js"></script>
 </head>
 
 <body>
     <!-- Title Bar -->
-    <div class="fluid-container">
-        <h1>
-            U of A Room Seeker
-        </h1>
+    <div class="container-fluid title">
+        <div class="title">
+            <h1>
+                UA Room Seeker
+            </h1>
+        </div>
     </div>
 
     <!-- Personal Info -->
-    <div class="fluid-container">
+    <div class="container-fluid padding">
         <div class="row">
             <div class="col-sm-8">
                 <h4>Made with love by Noah Gergel, Weilin Qiu, Sichun Xu, and Nina Yang</h4>
@@ -39,7 +40,7 @@
     </div>
 
     <!-- About this project -->
-    <div class="fluid-container">
+    <div class="container-fluid padding">
         <div class="container">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
@@ -56,10 +57,76 @@
     <hr>
 
     <!-- Input -->
-    <div class="fluid-container">
-        <div class="row">
-            <!-- The time selection -->
+    <div class="input">
+        <div class="container-fluid padding">
+            <div class="col-sm-12">
+                <h2>Search for Rooms</h2>
+            </div>
+            <div class="search">
+                <div class="row">
+                    <!-- Input time info -->
+                    <div class="col-sm-6">
+                        <div class="time">
+                            <h3>Select a time:</h3>
+                            <input type="time" id="timeinput" name="timeinput" required>
+                        </div>
+                    </div>
+        
+                    <!-- Input building info -->
+                    <div class="col-sm-6">
+                        <div class="building">
+                            <h3>Select buildings:</h3>
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="ETLC">ETLC</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="CAB">CAB</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="C">CHEM</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="MECE">MECE</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="NREF">NREF</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="ECHA">ECHA</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="SAB">SAB</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="HC">Humanities</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="T B">Tory Building</div>
+                                    <div class="col-sm-4"><input type="checkbox" name="building1" value="FAB">Fine Arts</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+        
+                    <!-- Search Button -->
+                    <div class="container-fluid padding">
+                        <div class="searchbutton">
+                            <button type="button" class="btn btn-primary btn-lg">Find me some classroom!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <hr>
 
+    <!-- Results -->
+    <div class="container-fluid padding">
+        <h3>
+            Results:
+        </h3>
+    </div>
+    <hr>
+
+    <!-- Javascript stuff -->
+    <script>
+        alert('Script tags work');
+    </script>
+
+    <footer>
+        <div class="container-fluid padding">
+            <div class="col-12">
+                <div class="copyright">
+                    <h5>&copy; uaroomseeker.tech</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+</html>

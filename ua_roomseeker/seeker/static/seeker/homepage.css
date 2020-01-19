@@ -1,0 +1,66 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Encode Sans', sans-serif;
+    scroll-behavior: smooth;
+    background-color: ghostwhite ;
+}
+
+.title {
+    color: #010101;
+    text-align: center;
+    padding: 2em;
+}
+
+.title h1 {
+    font-size: 300%;
+}
+
+.input {
+    background-color: #65B53B;
+    padding-bottom: 2em;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.input h2 {
+    color: ghostwhite;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.search {
+    background-color: ghostwhite;
+}
+
+.time{
+    text-align: center;
+}
+
+.time h3 {
+    padding: 0.4em;
+}
+
+.building form{
+    padding: 1em;
+}
+
+.building h3{
+    text-align: center;
+}
+
+.searchbutton{
+    padding: 1em;   
+}
+
+.input button {
+    margin:auto;
+    display:block;
+    background-color: #65B53B;
+    border: black;
+    border-radius: 0;
+  }
+
+  .copyright {
+      text-align: center;
+  }
