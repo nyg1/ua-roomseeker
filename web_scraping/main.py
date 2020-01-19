@@ -9,6 +9,9 @@ from copy import deepcopy
 # Global constants.
 DATA_DIR = '../data/'
 
+# Debug output.
+VERBOSE = True
+
 
 def main():
 	'''
@@ -26,13 +29,17 @@ def main():
 	all_data = {}
 
 	# Scrape each course page and construct each building JSON.
-	for i in range(40):
-		raw_class = scraping.scrape_class(courses[i][0], courses[i][1])
+	for c in courses:
+		raw_class = scraping.scrape_class(c[0], c[1])
 		new_times = util.parse_class(class_regex, raw_class)
 
 		# Loop through each new time and add it to master dictionary.
 		for j in new_times:
 			add_time(all_data, j)
+
+		# Debug info.
+		if VERBOSE:
+			print('Scrapped the course:', c[0], c[1])
 
 	all_data = invert_times(all_data)
 
