@@ -4,6 +4,7 @@
 from json import dumps
 import util, scraping
 from copy import deepcopy
+from time import sleep
 
 
 # Global constants.
@@ -40,6 +41,9 @@ def main():
 		# Debug info.
 		if VERBOSE:
 			print('Scrapped the course:', c[0], c[1])
+
+		# To not time out. :)
+		sleep(0.06)
 
 	all_data = invert_times(all_data)
 

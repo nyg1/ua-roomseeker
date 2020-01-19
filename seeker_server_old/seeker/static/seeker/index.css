@@ -1,0 +1,107 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Encode Sans', sans-serif;
+    scroll-behavior: smooth;
+    background-color: ghostwhite;
+}
+
+.seeker-content {
+    width: 60%;
+    margin: 0px 20%;
+}
+
+.title {
+    color: #010101;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+.title h1 {
+    font-size: 300%;
+}
+
+p {
+    padding: 1em;
+}
+
+.input {
+    background-color: #65B53B;
+    padding-bottom: 2em;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.input h2 {
+    color: ghostwhite;
+    padding: 0.5em;
+    text-align: center;
+}
+
+img{
+    padding-right: 0.3em;
+    width: 2em;
+}
+
+.search {
+    background-color: ghostwhite;
+}
+
+.time{
+    text-align: center;
+}
+
+.time h3 {
+    padding: 0.4em;
+}
+
+.building form{
+    padding: 1em;
+}
+
+.building h3{
+    text-align: center;
+}
+
+.searchbutton{
+    padding: 1em;   
+}
+
+.input button {
+    margin:auto;
+    display:block;
+    background-color: #65B53B;
+    border: black;
+    border-radius: 0;
+  }
+
+.copyright {
+    text-align: center;
+}
+
+.repolink{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4.5em;
+}
+
+.results {
+    display: none;
+}
+
+.author {
+    text-align: center;
+    padding-top: 5em;
+}
+
+footer{
+    padding-top: 0.5em;
+}
+
+@media only screen and (orientation: portrait) {
+    .seeker-content {
+        width: 100%;
+    }
+}
