@@ -24,6 +24,7 @@ class Classroom(models.Model):
         return self.ClassroomName
 
 class Time(models.Model):
+    building = models.ForeignKey(Building, on_delete=models.CASCADE)
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
     DayofWeek = models.CharField(max_length=1)
     TimeValue = models.IntegerField()
@@ -32,4 +33,4 @@ class Time(models.Model):
         return reverse('seeker:index')
 
     def __str__(self):
-        return self.DayofWeek + '-' + self.TimeValue
+        return self.DayofWeek + '-' + str(self.TimeValue)
