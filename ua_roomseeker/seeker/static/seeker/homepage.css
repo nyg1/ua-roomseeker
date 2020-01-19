@@ -9,11 +9,16 @@ html, body {
 .title {
     color: #010101;
     text-align: center;
-    padding: 2em;
+    padding-top: 2em;
+    padding-bottom: 1em;
 }
 
 .title h1 {
     font-size: 300%;
+}
+
+p {
+    padding: 1em;
 }
 
 .input {
@@ -27,6 +32,11 @@ html, body {
     color: ghostwhite;
     padding: 0.5em;
     text-align: center;
+}
+
+img{
+    padding-right: 0.3em;
+    width: 2em;
 }
 
 .search {
