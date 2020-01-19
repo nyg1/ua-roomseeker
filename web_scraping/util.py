@@ -1,8 +1,13 @@
+# (c) Noah Gergel, Sichun Xu, Weilin Qiu, Nina Yang 2020
+
+# Imports.
 import re, io
+
 
 # Regex for courses and classes.
 COURSE_EXPR = r'[A-Z]+\s*[A-Z]*\s*[A-Z]*\s[1-9]{3,}'
-CLASS_EXPR = r'([MTWRF]+\s([0-9]{2}:){2}[0-9]{2}\s-\s([0-9]{2}:){2}[0-9]{2}\s\([A-Z]+[\s0-9]+\))'
+CLASS_EXPR = r'([MTWRF]+\s([0-9]{2}:){2}[0-9]{2}\s-\s([0-9]{2}:){2}[0-9]{2}\s\([A-Z]+\s*[A-Z]*[\s0-9]+\))'
+
 
 def init_regex():
 	'''
@@ -20,13 +25,14 @@ def init_regex():
 	# Return tuple of each case.
 	return (course_reg, class_reg)
 
-def parse_courses(expr, file_name):
+
+def parse_courses(expr, raw_data):
 	'''
 	Given regex object and file, open and parse the HTML to get a course list.
 
 	Arguments:
 		- expr (regex): Regex object.
-		- file_name (string): The file name.  
+		- raw_data (list): The raw data for course listings.  
 	
 	Returns:
 		- (list): A list of the course names, where each is a tuple of the
@@ -35,40 +41,33 @@ def parse_courses(expr, file_name):
 
 	# Verify data types.
 	if str(type(expr)) != '<class \'_sre.SRE_Pattern\'>' \
-	   or str(type(file_name)) != '<class \'str\'>':
+	   or str(type(raw_data)) != '<class \'list\'>':
 		raise TypeError
 
 	# Initialize final course list.
 	courses = []
 
-	# Read through the file, collecting the courses.
-	with io.open(file_name, 'r', 1) as fin:
-		while True:
-			line = fin.readline()
+	# Read through the raw_data, collecting the courses.
+	for line in raw_data:
+		# Loop through every match, and parse the string.
+		for val in expr.findall(line):
+			sep = val.rfind(' ')
+			subject, num = val[:sep], val[sep + 1:]
 
-			if not line:
-				break
-
-			# Break up the courses into subject and number, then add to list.
-			res = expr.search(line)
-			if res:
-				val = res.group(0)
-				sep = val.rfind(' ')
-				subject, num = val[:sep], val[sep + 1:]
-
-				courses.append((subject, num))
+			courses.append((subject, num))
 
 	# Return course list.
 	return courses
 
-def parse_class(expr, file_name):
+
+def parse_class(expr, raw_data):
 	'''
 	Given regex object and file, open and parse HTML to get a class' times.
 	Then return the times it is available.
 
 	Arguments:
 		- expr (regex): Regex object.
-		- file_name (string): The file name.  
+		- raw_data (string): The raw data to process.  
 	
 	Returns:
 		- (list): A list of dictionaries of the appropriate information.
@@ -76,42 +75,34 @@ def parse_class(expr, file_name):
 
 	# Verify data types.
 	if str(type(expr)) != '<class \'_sre.SRE_Pattern\'>' \
-	   or str(type(file_name)) != '<class \'str\'>':
+	   or str(type(raw_data)) != '<class \'str\'>':
 		raise TypeError
 
 	# Initialize final list of entries.
 	times = []
 
-	# Read through the file, collecting the times.
-	with io.open(file_name, 'r', 1) as fin:
-		while True:
-			line = fin.readline()
+	# Parse the class and add them to the list.
+	for line in expr.findall(raw_data):
+		val = line[0]
 
-			if not line:
-				break
+		# Seperate time and building information.
+		time, building = val.split('(')
+		building = building[:-1].split()
+		room, building = '-'.join(building[1:]), building[0]
 
-			# Parse the class and add them to the list.
-			res = expr.search(line)
-			if res:
-				val = res.group(0)
+		# Split up time data.
+		days, start, _, end = time.split()
 
-				# Seperate time and building information.
-				time, building = val.split('(')
-				building = building[:-1].split()
-				room, building = '-'.join(building[1:]), building[0]
-
-				# Split up time data.
-				days, start, _, end = time.split()
-
-				# Add each time segment to the list.
-				for i in days:
-					for j in get_time(start, end):
-						time_seg = { "building" : building, "day": i,
-									 "room": room, "time": j }
-						times.append(time_seg)
+		# Add each time segment to the list.
+		for i in days:
+			for j in get_time(start, end):
+				time_seg = { "building" : building, "day": i,
+							 "room": room, "time": j }
+				times.append(time_seg)
 
 	# Return course list.
 	return times
+
 
 def get_time(start, end):
 	'''
