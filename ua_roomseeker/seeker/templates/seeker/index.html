@@ -5,7 +5,7 @@
         <h3>Here are all the Buildings:</h3>
         {% for building in all_Buildings %}
         <h3>
-            <a href="{% url 'seeker:detail' building.id %}">{{building.BuildingName}}<br></a>
+            <a href="{% url 'seeker:building-detail' building.id %}">{{building.BuildingName}}<br></a>
         </h3>
         <!-- <div class="container-fluid padding">
             <div class="caption">

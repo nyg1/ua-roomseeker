@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index') ,
 
     #/seeker/building/71/
-    path('building/<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('building/<int:pk>/', views.BuildingDetailView.as_view(), name='building-detail'),
 
     #/seeker/album/add
     path('building/add/', views.BuildingCreate.as_view(), name='building-add'),
