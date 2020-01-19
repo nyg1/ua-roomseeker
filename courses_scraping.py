@@ -13,5 +13,6 @@ for n in range(1, 74):
     course_parser = soup(course_html, "html.parser")
     uClient.close()
     course_list=course_parser.findAll("a")
+
     for h in course_list:
         print(h.text.strip())
