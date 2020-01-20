@@ -33,6 +33,10 @@ class ClassroomCreate(CreateView):
     model = Classroom
     fields = ['building', 'ClassroomName']
 
+class ClassroomDetailView(generic.DetailView):
+    model = Classroom
+    template_name = 'seeker/classroom-detail.html'
+
 def homepage(request):
     response = render(request, 'seeker/homepage.html')
     return response

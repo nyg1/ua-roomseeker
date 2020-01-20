@@ -19,6 +19,9 @@ urlpatterns = [
     # #/seeker/building/2/delete/
     # path('building/<int:pk>/delete/', views.BuildingDelete.as_view(), name='album-delete'),
 
+    #/seeker/classroom/2038
+    path('classroom/<int:pk>/', views.ClassroomDetailView.as_view(), name='classroom-detail'),
+
     #/seeker/classroom/add
     path('classroom/add/', views.ClassroomCreate.as_view(), name='classroom-add'),
 

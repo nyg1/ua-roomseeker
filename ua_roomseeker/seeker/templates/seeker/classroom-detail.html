@@ -1,0 +1,14 @@
+{% extends 'seeker/base.html' %}
+
+{% block title %}Classroom Information{% endblock %}
+
+{% block body %}
+    {% load static %}
+
+    <h1>{{ classroom.ClassroomName }}</h1> 
+
+    {% for time in classroom.time_set.all %}
+        {{ time.DayofWeek }} - {{ time.TimeValue }}
+        <br>
+    {% endfor %}
+{% endblock %}

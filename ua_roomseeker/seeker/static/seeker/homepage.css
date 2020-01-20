@@ -16,6 +16,10 @@ html, body {
     font-size: 300%;
 }
 
+img {
+    width: 1.5em;
+}
+
 .input {
     background-color: #65B53B;
     padding-bottom: 2em;
@@ -33,11 +37,11 @@ html, body {
     background-color: ghostwhite;
 }
 
-.time{
+.time , .date{
     text-align: center;
 }
 
-.time h3 {
+.time h3, .date h3{
     padding: 0.4em;
 }
 
