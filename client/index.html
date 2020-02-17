@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!-- This project is licenced under the MIT licence. -->
+
+<!--
+    Home page for UA Room Seeker.
+    Contains the web app's main functionality.
+-->
+
+<html>
+    <head>
+        <!-- Meta data. -->
+        <title>UA Room Seeker</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" href="assets/favicon.ico"/> 
+
+        <!-- Imports. -->
+        <script type="text/javascript" src="src/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="src/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="src/index.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Nobile&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">  
+    </head>
+    <body>
+        <!-- Title and info link. -->
+        <div class="container title">
+            <img src="assets/logo.svg"/>
+            <h1>UA Room Seeker</h1>
+            <div class="break"></div>
+            <h2>Find (likely) empty lecture halls</h2>
+        </div>
+
+        <div class="container button-link">
+            <button v-on:click="clicked('about.html')">
+                <p>What is UA Room Seeker?</p>
+                <img src="assets/arrow.svg"/>
+            </button>
+        </div>
+
+        <!-- Main app functionality. -->
+        <div class="colored-background">
+            <div class="container" id="seeker">
+                <div class="container-column">
+                    <p>Choose a Day</p>
+                    <select v-model="day">
+                        <option v-for="d in day_options" v-bind:value="d">
+                            {{ d }}
+                        </option>
+                    </select>
+                </div>
+                <div class="container-column">
+                    <p>Choose a Time</p>
+                    <input type="time" min="07:00" max="20:00" step="60" v-model:value="time"/>
+                </div>
+                <div class="container-column">
+                    <p>Choose a Building</p>
+                    <select v-model="building">
+                        <option disabled value="">Please select a building</option>
+                        <option v-for="option in building_options" v-bind:value="option">
+                            {{ option }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="break"></div>
+                <p class="res-msg">{{ msg }}</p>
+
+                <div class="break"></div>
+                <button v-on:click="submitted">Find (likely) Available Rooms</button>
+            </div>
+        </div>
+
+        <!-- Clarification message. -->
+        <div class="container" id="garuntee">
+            <p>
+                We make no guarantees that any room is unlocked or devoid of
+                activity, just that a lecture isn't booked.
+            </p> 
+        </div>
+
+        <!-- Results from the last query. -->
+        <div class="container" id="results" v-if="queried">
+            <h1>Results:</h1>
+            <div class="break"></div>
+
+            <div class="result" v-for="val in values">
+                <p class="result-room">{{ val.room }}</p>
+                <div class="result-divider"></div>
+                <p class="result-times">{{ val.times }}</p>
+            </div>
+        </div>
+
+        <div class="space"></div>
+
+        <!-- Authors and GitHub link. -->
+        <footer id="author">
+            <p>
+                <span class="author-desktop">
+                    Made with love by Noah Gergel, Weilin Qiu, Sichun Xu, and Nina Yang |
+                </span>
+                <a>See this on GitHub</a>
+            </p>
+        </footer>
+
+        <!-- Vue.js Script. -->
+        <script type="text/javascript" src="src/main.js"></script>
+    </body>
+</html>

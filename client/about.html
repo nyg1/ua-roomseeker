@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<!-- This project is licenced under the MIT licence. -->
+
+<!--
+    About page. Explains how to use UA Room Seeker
+    and gives some info about the developers.
+-->
+
+<html>
+    <head>
+        <!-- Meta data. -->
+        <title>UA Room Seeker - About</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" href="assets/favicon.ico"/> 
+
+        <!-- Imports. -->
+        <script type="text/javascript" src="src/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="src/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="src/about.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Nobile&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <!-- Page title and return button. -->
+        <div class="container title">
+            <h1>What is UA Room Seeker?</h1>
+            <div class="break"></div>
+            <h2>And more about it's developers</h2>
+        </div>
+
+        <div class="container button-link">
+            <button v-on:click="clicked('index.html')">
+                <p>Back to UA Room Seeker</p>
+                <img src="assets/arrow.svg"/>
+            </button>
+        </div>
+
+        <div class="container" id="about-text">
+            <p>
+                UA Room Seeker is a web app that can tell you what lecture halls
+                are available to study, eat, or whatever else you'd want to do. That is,
+                rooms that are free to use between classes. If the study area you're in is too loud,
+                all the tables are full, or you want a whiteboard, <em>UA Room Seeker</em> can give
+                you an alternative option without having to check every room first, and not know
+                when you'll have to leave due to a class using the room.<br/><br/>
+
+                Simply give a time and building to get a list of rooms and times that they will
+                be free till. Please note however, that we can't guarantee that any of the rooms are
+                completely empty or unlocked. The way we determine availability is by scraping publically
+                available course catalogues to determine when a given room has a class or not. The room
+                however might be locked, occupied by a club, or otherwise in-accessible. However, many
+                of the rooms are easily accessible to all students so there is very likely no issues.<br/><br/>
+
+                In addition, we are under no context affiliated with the University
+                of Alberta, nor do we claim to be. This is simply a labour of love by some of your fellow
+                students. This web app was initially developed during HackED 2020, and later fleshed out
+                by Noah Gergel, Sichun Xu, Weilin Qiu, and Nina Yang. For those that are interested, the web
+                scraping and server are implimented in Python 3, using the framework Flask. The front end was
+                implimented using Vue.js.
+            </p>
+        </div>
+
+        <!-- Authors and GitHub link. -->
+        <footer id="author">
+            <p>
+                <span class="author-desktop">
+                    Made with love by Noah Gergel, Weilin Qiu, Sichun Xu, and Nina Yang |
+                </span>
+                <a>See this on GitHub</a>
+            </p>
+        </footer>
+
+        <!-- Vue.js Script. -->
+        <script type="text/javascript" src="src/main.js"></script>
+    </body>
+</html>

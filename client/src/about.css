@@ -1,0 +1,17 @@
+/* This project is licenced under the MIT licence. */
+
+/**
+ *  CSS properties for the about page.
+ */
+
+#about-text {
+    font: 1.2em 'Open Sans', sans-serif;
+    justify-content: flex-start;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Mobile specific properties. */
+@media only screen and (orientation: portrait) {
+    #about-text { font: 0.9em 'Open Sans', sans-serif; }
+}

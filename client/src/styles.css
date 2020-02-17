@@ -1,0 +1,105 @@
+/* This project is licenced under the MIT licence. */
+
+/**
+ *  General CSS properties for every page on the site.
+ */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-color: #EFEFEF;
+}
+
+.container {
+    margin: 2% 20vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center; 
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0px;
+}
+
+.title img {
+    height: 4.5em;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+.title h1 {
+    font: 3.8em 'Nobile', sans-serif;
+    color: #1D1D1D;
+    margin: 0px;
+}
+
+.title h2 {
+    font: 1.7em 'Open Sans', sans-serif;
+    color: #2F2F2F;
+    margin-top: 5px;
+}
+
+.button-link button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 8%;
+    border: solid 2px #CFCFCF;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+}
+
+.button-link button:hover { background-color: #CFCFCF; }
+
+.button-link p {
+    font: 2.2em 'Open Sans', sans-serif;
+    margin: 0px 15px;
+    color: #2F2F2F;
+}
+
+.button-link img { height: 2.2em; }
+
+footer {
+    width: 100%;
+    background-color: #E2E2E2;
+    bottom: 0px;
+    text-align: center;
+    font: 1.1em 'Open Sans', sans-serif;
+    color: #2F2F2F;
+    padding: 8px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.space {
+    height: 5em;
+    width: 100%;
+}
+
+@media only screen and (orientation: portrait) {
+    .container { margin: 3% 4vw; }
+
+    .title h1 { font: 2em 'Nobile', sans-serif; }
+    .title img { height: 3.3em; }
+
+    .title h2 {
+        font: 1.2em 'Open Sans', sans-serif;
+        margin-top: 5px;
+    }
+
+    .button-link p { font: 1.2em 'Open Sans', sans-serif; }
+
+    footer { font: 1em 'Open Sans', sans-serif; }
+    footer .author-desktop { display: none; }
+} 

@@ -1,132 +1,66 @@
-# (c) Noah Gergel, Sichun Xu, Weilin Qiu, Nina Yang 2020
+# This project is licenced under the MIT licence.
 
 # Imports.
-import re, io
+from requests import get
 
 
-# Regex for courses and classes.
-COURSE_EXPR = r'[A-Z]+\s*[A-Z]*\s*[A-Z]*\s[1-9]{3,}'
-CLASS_EXPR = r'([MTWRF]+\s([0-9]{2}:){2}[0-9]{2}\s-\s([0-9]{2}:){2}[0-9]{2}\s\([A-Z]+\s*[A-Z]*[\s0-9]+\))'
+# Global constants.
+COURSE_URL = 'https://calendar.ualberta.ca/content.php?catoid=29&catoid=29&navoid=7430&filter%5Bitem_type%5D=3&filter%5Bonly_active%5D=1&filter%5B3%5D=1&filter%5Bcpage%5D={}#acalog_template_course_filter'
+CLASS_URL = 'https://catalogue.ualberta.ca/Course/Details?subjectCode={}&catalog={}'
+NUM_PAGES = 73 # Hard coded number of pages for course listing.
+
+# Debug flag.
+VERBOSE = False
 
 
-def init_regex():
-	'''
-	Initialize regex objects to parse HTML pages.
-	The first object is for parsing course listings, and the second is for
-	parsing a course page.
+def scrape_courses():
+    '''
+    Parses full course listing and generates list of every course offered at
+    the U of A, Including some misc garbage. Returns the raw course list.
 
-	Returns:
-		- (tuple): A tuple of the two objects.
-	'''
+    Returns:
+        - (list): Raw data of course listings.
+    '''
 
-	# Initialize regex objects.
-	course_reg, class_reg = re.compile(COURSE_EXPR), re.compile(CLASS_EXPR)
+    # Initialize data list and parser.
+    data = []
 
-	# Return tuple of each case.
-	return (course_reg, class_reg)
+    # Loop through every page of courses.
+    for i in range(1, NUM_PAGES + 1):
+        # Get formatted URL.
+        url = COURSE_URL.format(i)
 
+        # Scrape HTML data and append to data.
+        html = get(url).text
+        data.append(html)
 
-def parse_courses(expr, raw_data):
-	'''
-	Given regex object and file, open and parse the HTML to get a course list.
+        # Debug info.
+        if VERBOSE:
+            print('Successfully scrapped course page #%d' % i)
 
-	Arguments:
-		- expr (regex): Regex object.
-		- raw_data (list): The raw data for course listings.  
-	
-	Returns:
-		- (list): A list of the course names, where each is a tuple of the
-				  subject and course number.
-	'''
-
-	# Verify data types.
-	if str(type(expr)) != '<class \'_sre.SRE_Pattern\'>' \
-	   or str(type(raw_data)) != '<class \'list\'>':
-		raise TypeError
-
-	# Initialize final course list.
-	courses = []
-
-	# Read through the raw_data, collecting the courses.
-	for line in raw_data:
-		# Loop through every match, and parse the string.
-		for val in expr.findall(line):
-			sep = val.rfind(' ')
-			subject, num = val[:sep], val[sep + 1:]
-
-			courses.append((subject, num))
-
-	# Return course list.
-	return courses
+    # Return the scrapped data.
+    return data
 
 
-def parse_class(expr, raw_data):
-	'''
-	Given regex object and file, open and parse HTML to get a class' times.
-	Then return the times it is available.
+def scrape_class(subject, num):
+    '''
+    Parses class page and return all the occupied times.
 
-	Arguments:
-		- expr (regex): Regex object.
-		- raw_data (string): The raw data to process.  
-	
-	Returns:
-		- (list): A list of dictionaries of the appropriate information.
-	'''
+    Arguments:
+        - subject (string): The course subject.
+        - num (string): Course number, as a string.
 
-	# Verify data types.
-	if str(type(expr)) != '<class \'_sre.SRE_Pattern\'>' \
-	   or str(type(raw_data)) != '<class \'str\'>':
-		raise TypeError
+    Returns:
+        - (string): Raw data of a class page.
+    '''
 
-	# Initialize final list of entries.
-	times = []
+    # Get formatted URL and scrape HTML data.
+    url = CLASS_URL.format(subject, num)
+    html = get(url).text
 
-	# Parse the class and add them to the list.
-	for line in expr.findall(raw_data):
-		val = line[0]
+    # Debug info.
+    if VERBOSE:
+        print('Successfully scrapped class page for %s %d' % (subject, num))
 
-		# Seperate time and building information.
-		time, building = val.split('(')
-		building = building[:-1].split()
-		room, building = '-'.join(building[1:]), building[0]
-
-		# Split up time data.
-		days, start, _, end = time.split()
-
-		# Add each time segment to the list.
-		for i in days:
-			for j in get_time(start, end):
-				time_seg = { "building" : building, "day": i,
-							 "room": room, "time": j }
-				times.append(time_seg)
-
-	# Return course list.
-	return times
-
-
-def get_time(start, end):
-	'''
-	Given a start and end time, returns all 30 min time segments between them.
-
-	Arguments:
-		- start (string): Start time, in the format hh:mm:ss.
-		- end (string): End time, in the format hh:mm:ss.
-
-	Returns:
-		- (list): List of time values, in minutes since the start of the day.
-	'''
-
-	# Convert time to integers.
-	start_vals = list(map(int, start.split(':')))
-	end_vals = list(map(int, end.split(':')))
-
-	# Get time in minutes, ignore seconds.
-	start_time = 60 * start_vals[0] + start_vals[1]
-	end_time = 60 * end_vals[0] + end_vals[1]
-
-	# Return list of time segments.
-	return [i for i in range(start_time, end_time, 30)]
-
-
-
-
+    # Return the scrapped data.
+    return html

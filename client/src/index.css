@@ -1,0 +1,166 @@
+/* This project is licenced under the MIT licence. */
+
+/**
+ *  CSS properties specfic to the home page.
+ */
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center; 
+    width: 33%;
+}
+
+.colored-background {
+    background-color: #65B53A;
+    width: 99.9%;
+    margin: 3.5% 0px;
+    padding: 1px;
+}
+
+#seeker {
+    background-color: #EFEFEF;
+    padding: 1%;
+}
+
+#seeker p {
+    width: 100%;
+    font: 1.5em 'Open Sans', sans-serif;
+    margin: 0.5% 0px 3% 0px;
+    color: #2F2F2F;
+}
+
+#seeker input, #seeker select {
+    font: 1.1em 'Open Sans', sans-serif;
+    width: 80%;
+    height: 3.2em;
+    border: solid 2px #CFCFCF;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+    padding: 0.4em;
+    display: block;
+    margin-bottom: 1.4em;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    color: #2F2F2F;
+}
+
+#seeker select {
+    -moz-appearance: none;
+	-webkit-appearance: none;
+    appearance: none;
+    background-image: url('../assets/drop_down.svg');
+    background-repeat: no-repeat, repeat;
+    background-position: right .5em top 50%, 0 0;
+    background-size: 1.8em auto, 100%;
+}
+
+#seeker input:invalid {
+    border: solid 2px #DD2222;
+}
+
+#seeker .res-msg {
+    font: 1.1em 'Open Sans', sans-serif;
+    display: block;
+    margin-bottom: 2.5%;
+    color: #2F2F2F;
+}
+
+#seeker button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 4%;
+    border: solid 2px #CFCFCF;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    font: 1.4em 'Open Sans', sans-serif;
+    color: #2F2F2F;
+}
+
+#results h1 {
+    font: 2.5em 'Open Sans', sans-serif;
+    color: #2F2F2F;
+    margin: 0px;
+    margin-bottom: 2%;
+}
+
+#results .result {
+    border: solid 1px #CFCFCF;
+    width: 45%;
+    margin: 0px 2%;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center; 
+}
+
+#results .result-divider {
+    height: 100%;
+    border: solid 1px #CFCFCF;
+    width: 0px;
+    display: inline-block;
+}
+
+#results p {
+    font: 1.2em 'Open Sans', sans-serif;
+    margin: 0px;
+    color: #3F3F3F;
+}
+
+#results .result-room { width: 39%; }
+#results .result-times { width: 59%; }
+
+#garuntee {
+    margin: -2% 20vw;
+    margin-bottom: 1%;
+    font: 1em 'Open Sans', sans-serif;
+}
+
+/* Mobile specific properties. */
+@media only screen and (orientation: portrait) {
+    .colored-background {
+        background-color: #EFEFEF;
+        margin-top: 6%;
+        width: 99.7%;
+    }
+
+    .container-column { width: 100%; }
+
+    #seeker p {
+        font: 1.3em 'Open Sans', sans-serif;
+        margin-top: 5px;
+    }
+
+    #seeker input, #seeker select { font: 1em 'Open Sans', sans-serif; }
+    #seeker .res-msg { margin-bottom: 6%; }
+    #seeker { border: 2px solid #65B53A; }
+
+    #seeker button {
+        font: 1.3em 'Open Sans', sans-serif;
+        padding: 10px 18px;
+        margin-bottom: 4%;
+    }
+
+    #results h1 { 
+        font: 1.8em 'Open Sans', sans-serif;
+        margin: 3% 0px;
+        margin-bottom: 7%;
+    }
+
+    #results .result { width: 100%; }
+
+    #garuntee {
+        margin: -3% 4vw; 
+        margin-bottom: 1%;
+    }
+} 
