@@ -1,9 +1,7 @@
-#!../venv/bin/python3
-
 # This project is licenced under the MIT licence.
 
 # Imports.
-from flask import Flask
+from flask import Flask, request, abort
 
 
 # Debug output.
@@ -13,10 +11,15 @@ VERBOSE = True
 app = Flask(__name__)
 
 
-# Request times for a building.
-@app.route('/api/v1/times', methods=['POST'])
-def times():
-    return "Hello, World!"
+# Request rooms for a given building, day, and time.
+@app.route('/api/v1/rooms', methods=['POST'])
+def get_rooms():
+    # Verify JSON data to have a building, time, and day.
+    if (not request.json) or ('day' not in request.json) or \
+       ('building' not in request.json) or ('time' not in request.json):
+        abort(400)
+
+    return {"hi": "bye"}, 201
 
 
 # Entry point for the API.
