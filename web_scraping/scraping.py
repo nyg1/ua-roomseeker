@@ -7,10 +7,10 @@ from copy import deepcopy
 from time import sleep
 
 
-# Global constants.
+# Place to store the final JSON data.
 DATA_DIR = '../data/'
 
-# Debug output.
+# Debug flag.
 VERBOSE = True
 
 
