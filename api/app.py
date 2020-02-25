@@ -2,6 +2,7 @@
 
 # Imports.
 from flask import Flask, request, abort
+import db
 
 
 # Debug output.
@@ -14,10 +15,14 @@ app = Flask(__name__)
 # Request rooms for a given building, day, and time.
 @app.route('/api/v1/rooms', methods=['POST'])
 def get_rooms():
+    print(request.json)
+
     # Verify JSON data to have a building, time, and day.
     if (not request.json) or ('day' not in request.json) or \
        ('building' not in request.json) or ('time' not in request.json):
         abort(400)
+
+    res = db.query(request.json['building'], request.json['day'], request.json['time'])
 
     return {"hi": "bye"}, 201
 

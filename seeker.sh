@@ -7,8 +7,10 @@
 
 
 # Global constants.
-export FLASK_APP="app/server.py"
+export FLASK_APP="api/app.py"
 export FLASK_ENV="development"
+
+flask run
 
 # Comment this out for now.
 # # Handle each sub command.

@@ -8,10 +8,10 @@ from time import sleep
 
 
 # Place to store the final JSON data.
-DATA_DIR = '../data/'
+DATA_DIR = './data/'
 
 # Debug flag.
-VERBOSE = True
+VERBOSE = False
 
 
 def main():
