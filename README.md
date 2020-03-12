@@ -1,4 +1,4 @@
-# UAroomseeker
+# ua-roomseeker
 Room Seeker is a web app that provides assistance in finding unoccupied lecture halls on the University of Alberta North Campus, and Campus Saint-Jean.
 
 
